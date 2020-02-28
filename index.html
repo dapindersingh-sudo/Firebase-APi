@@ -9,6 +9,25 @@
     <!-- Okay -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-auth.js"></script>
+      <!-- <script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script> -->
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAoTMT-O6JPcJ8AlWKD90XLmwC81dHHZzc",
+        authDomain: "newweather-f08fc.firebaseapp.com",
+        databaseURL: "https://newweather-f08fc.firebaseio.com",
+        projectId: "newweather-f08fc",
+        storageBucket: "newweather-f08fc.appspot.com",
+        messagingSenderId: "996341964823",
+        appId: "1:996341964823:web:63eeec11136e0f9a06fc52",
+        measurementId: "G-SB05BVNKXZ"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+   
+    </script>
     <title>LogIn</title>
 </head>
 <body>
@@ -16,8 +35,34 @@
          <h4> <nav class="bg-info p-4 text-center text-warning"> LOGIN </nav></h4>
          <input type="email" id="email" placeholder="Enter em@il" class="form-control" required>
          <input type="password" id="pswrd" placeholder="Password" class="form-control mt-2" required>
-      <a href="login.html"><button id="login" class="btn btn-outline-success btn-center mt-2  btn-sm ">LogIn</button></a></div>
-         <a href="signIN.html"><button id="signIn"  class="btn-primary ml-1 mt-2 ">Sign IN</button></a>
+      <button id="login" class="btn btn-outline-success btn-center mt-2  btn-sm ">LogIn</button></div>
+         <button id="signIn"  class="btn-primary ml-1 mt-2 ">Sign IN</button>
       </div>
+      <script>
+
+        
+
+         var btn=document.getElementById("login");
+         btn.addEventListener('click',e=>{
+            var email=document.getElementById("email").value;
+            var pswrd=document.getElementById("pswrd").value;
+            
+   firebase.auth().signInWithEmailAndPassword(email, pswrd).catch(function(error) {
+                  if(error)
+                  {
+                  // Handle Errors here.
+                  var errorCode = error.code;
+                  var errorMessage = error.message;
+                  alert(errorMessage)
+                  // ...
+                  }
+                });
+         });
+         var sign=document.getElementById("signIn")
+
+         sign.addEventListener("click",e=>{
+            window.location.href="/signIN.html";
+         })
+      </script>
 </body>
 </html>
