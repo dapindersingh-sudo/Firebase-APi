@@ -8,6 +8,7 @@ Headers:{
     "x-rapidapi-host":"community-open-weather-map.p.rapidapi.com"
 }
 
+## JavaScript:
 
 ```javascript
 const URL = "https://community-open-weather-map.p.rapidapi.com/weather?q=patiala";
