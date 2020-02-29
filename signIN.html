@@ -32,11 +32,10 @@
 </head>
 <body>
       <div class="conatiner text-center"> 
-         <h4> <nav class="bg-info p-4 text-center text-warning"> SIGNUP</nav></h4>
-         <input type="email" id="email" placeholder="Enter em@il" class="form-control" required>
+         <h4> <nav class="bg-dark p-2 text-center text-warning">SIGN-UP</nav></h4>
+         Name:<input type="text" id="email" placeholder="Enter em@il" class= required>
          <input type="password" id="pswrd" placeholder="Password" class="form-control mt-2" required>
-     
-         <button id="signup"  class="btn-primary ml-1 mt-2 ">Sign UP</button>
+         <button id="signup"  class="btn btn-outline-warning ml-1 mt-2 ">Sign UP</button>
       </div>
       <script>
           var btn=document.getElementById("signup")
@@ -55,6 +54,7 @@
           })
           firebase.auth().onAuthStateChanged(user=>{
               if(user){
+                //console.log(user)
                   window.location.href = '/app.html'
               }
           })
